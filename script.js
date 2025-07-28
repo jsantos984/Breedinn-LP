@@ -113,8 +113,8 @@ function animateScrollIndicator() {
 function smoothScroll(target) {
     const element = document.querySelector(target);
     if (element) {
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        const elementPosition = element.offsetTop - navbarHeight - 20;
+        const navbarHeight = 70; // Fixed navbar height
+        const elementPosition = element.offsetTop - navbarHeight - 10;
         
         window.scrollTo({
             top: elementPosition,
@@ -131,23 +131,16 @@ function scrollToTop() {
     });
 }
 
-// Navbar scroll effect
+// Navbar scroll effect (simplified)
 function handleNavbarScroll() {
-    const navbar = document.querySelector('.navbar');
-    let lastScrollY = window.scrollY;
+    const navbar = document.querySelector('.top-navbar');
     
     window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(15px)';
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.15)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.9)';
-            navbar.style.backdropFilter = 'blur(10px)';
+            navbar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
         }
-        
-        lastScrollY = currentScrollY;
     });
 }
 

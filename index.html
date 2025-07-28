@@ -651,24 +651,25 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar sticky-nav">
-        <div class="nav-container">
-            <div class="nav-left">
-                <div class="logo" onclick="scrollToTop()">
-                    <div class="logo-circle">B</div>
-                    <h1>Breedinn</h1>
-                </div>
-                
-                <div class="nav-menu">
-                    <a href="#how-it-works" class="nav-link">How It Works</a>
-                    <a href="#who-its-for" class="nav-link">Who It's For</a>
-                    <a href="#benefits" class="nav-link">Benefits</a>
-                </div>
+    <nav class="top-navbar">
+        <div class="navbar-container">
+            <!-- Left Side: Logo -->
+            <div class="navbar-logo" onclick="scrollToTop()">
+                <div class="logo-circle">B</div>
+                <span class="brand-name">Breedinn</span>
             </div>
             
-            <div class="nav-right">
-                <button class="btn btn-red" onclick="handleTalkToUs()">Talk to us</button>
-                <button class="btn btn-light" onclick="handleLogin()">Login</button>
+            <!-- Center: Navigation Links -->
+            <div class="navbar-links">
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#who-its-for" class="nav-link">Who It's For</a>
+                <a href="#benefits" class="nav-link">Benefits</a>
+            </div>
+            
+            <!-- Right Side: Buttons and Flags -->
+            <div class="navbar-right">
+                <button class="nav-btn nav-btn-red" onclick="handleTalkToUs()">Talk to us</button>
+                <button class="nav-btn nav-btn-gray" onclick="handleLogin()">Login</button>
                 <div class="language-flags">
                     <span class="flag" onclick="changeLanguage('en')" title="English">🇬🇧</span>
                     <span class="flag" onclick="changeLanguage('pt')" title="Português">🇵🇹</span>
