@@ -5,7 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breedinn - Frozen Semen Stock Management</title>
     <meta name="description" content="Track, control, and share semen stock in real time with Breedinn's professional breeding management system.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Backup inline styles to ensure cards show */
+        .features-section {
+            background-color: #f8fafc;
+            padding: 5rem 0;
+            min-height: auto;
+        }
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .features-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .features-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .features-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .feature-icon {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #059669;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+        }
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .feature-description {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .features-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            .features-title {
+                font-size: 2.25rem;
+            }
+            .features-subtitle {
+                font-size: 1.125rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .features-section {
+                padding: 3rem 0;
+            }
+            .features-container {
+                padding: 0 1rem;
+            }
+            .features-header {
+                margin-bottom: 3rem;
+            }
+            .features-title {
+                font-size: 2rem;
+            }
+            .features-subtitle {
+                font-size: 1rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            .feature-card {
+                padding: 1.5rem;
+            }
+            .feature-title {
+                font-size: 1.125rem;
+            }
+            .feature-description {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .features-section {
+                padding: 2rem 0;
+            }
+            .features-title {
+                font-size: 1.75rem;
+            }
+            .feature-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
     <link rel="canonical" href="https://breedinn.com/">
 </head>
 <body>
