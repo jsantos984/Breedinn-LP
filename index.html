@@ -668,7 +668,7 @@
             
             <!-- Right Side: Buttons and Flags -->
             <div class="navbar-right">
-                <button class="nav-btn nav-btn-red" onclick="handleTalkToUs()">Talk to us</button>
+                <button class="nav-btn nav-btn-red talk-to-us-btn">Talk to us</button>
                 <button class="nav-btn nav-btn-gray" onclick="handleLogin()">Login</button>
                 <div class="language-flags">
                     <span class="flag" onclick="changeLanguage('en')" title="English">🇬🇧</span>
@@ -790,7 +790,7 @@
             </div>
             
             <div class="features-cta">
-                <button class="btn btn-green btn-large" onclick="handleTalkToUs()">Talk to Us</button>
+                <button class="btn btn-green btn-large talk-to-us-btn">Talk to Us</button>
             </div>
         </div>
     </section>
@@ -839,7 +839,7 @@
                 <div class="equine-cta-content">
                     <h3 class="equine-cta-title">Sound Like You?</h3>
                     <p class="equine-cta-description">If you work with frozen semen in the horse breeding industry, Breedinn was designed with you in mind.</p>
-                    <button class="btn btn-green btn-large" onclick="handleTalkToUs()">Talk to Us</button>
+                    <button class="btn btn-green btn-large talk-to-us-btn">Talk to Us</button>
                 </div>
             </div>
         </div>
@@ -970,6 +970,36 @@
                 
                 <p class="modal-final"><strong>This was the starting point for the creation of Breedinn!</strong></p>
             </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="contact-modal-overlay">
+        <div class="contact-modal-content">
+            <div class="contact-modal-header">
+                <h2 class="contact-modal-title">Let's Talk</h2>
+                <button class="contact-modal-close">×</button>
+            </div>
+            <p class="contact-modal-subtitle">Reach out and we'll get back to you as soon as possible.</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="5" required placeholder="Tell us about your needs..."></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit-btn">Send Message</button>
+            </form>
         </div>
     </div>
 

@@ -1,8 +1,19 @@
-// Utility functions
+// Contact Modal Functions
+function openContactModal() {
+    const modal = document.getElementById('contactModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeContactModal() {
+    const modal = document.getElementById('contactModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+// Legacy function - now opens contact modal
 function handleTalkToUs() {
-    // Open contact form or redirect to contact page
-    alert('Contact form would open here. Implement your preferred contact method.');
-    // Example: window.open('mailto:contact@breedinn.com?subject=Talk to us');
+    openContactModal();
 }
 
 function handleLogin() {
@@ -169,6 +180,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Add click handlers for "Talk to Us" buttons
+    document.querySelectorAll('.talk-to-us-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            openContactModal();
+        });
+    });
+    
+    // Contact modal close handlers
+    const contactModal = document.getElementById('contactModal');
+    const closeBtn = document.querySelector('.contact-modal-close');
+    
+    // Close on X button click
+    closeBtn.addEventListener('click', closeContactModal);
+    
+    // Close when clicking outside the modal content
+    contactModal.addEventListener('click', function(e) {
+        if (e.target === contactModal) {
+            closeContactModal();
+        }
+    });
+    
+    // Contact form submission
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const name = formData.get('fullName');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        
+        // Here you would typically send the data to your backend
+        console.log('Contact form submitted:', { name, email, message });
+        
+        // Show success message (you could replace this with a proper success UI)
+        alert('Thank you for your message! We\'ll get back to you soon.');
+        
+        // Reset form and close modal
+        contactForm.reset();
+        closeContactModal();
+    });
+    
     // Load saved language preference
     const savedLanguage = localStorage.getItem('preferred-language');
     if (savedLanguage) {
@@ -179,16 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.scroll-indicator').addEventListener('click', () => {
         // Scroll to the features section
         smoothScroll('#how-it-works');
-    });
-    
-    // Add keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            const focusedElement = document.activeElement;
-            if (focusedElement.classList.contains('btn')) {
-                focusedElement.click();
-            }
-        }
     });
     
     console.log('Breedinn website initialized successfully!');
@@ -207,9 +252,10 @@ function closeAboutModal() {
     document.body.style.overflow = 'auto'; // Restore scrolling
 }
 
-// Close modal when pressing Escape key
+// Close modals when pressing Escape key
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeAboutModal();
+        closeContactModal();
     }
 });
