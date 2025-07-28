@@ -624,7 +624,7 @@ body {
 
 /* Contact Modal Styles */
 .contact-modal-overlay {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     left: 0;
     width: 100%;
@@ -635,14 +635,16 @@ body {
     justify-content: center;
     z-index: 10000;
     backdrop-filter: blur(2px);
-    visibility: hidden;
-    opacity: 0;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transform: translateY(-100vh) !important;
 }
 
 .contact-modal-overlay.active {
     display: flex !important;
-    visibility: visible;
-    opacity: 1;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 .contact-modal-content {
