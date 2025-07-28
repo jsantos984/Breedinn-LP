@@ -542,6 +542,110 @@
                 justify-content: center;
             }
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(2px);
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+            line-height: 1.3;
+            padding-right: 1rem;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .modal-close:hover {
+            background-color: #f1f5f9;
+            color: #1e293b;
+        }
+        .modal-body {
+            padding: 1rem 2rem 2rem;
+        }
+        .modal-paragraph {
+            font-size: 1rem;
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .modal-final {
+            font-size: 1rem;
+            color: #1e293b;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 1rem;
+            }
+            .modal-header {
+                padding: 1.5rem 1.5rem 1rem;
+            }
+            .modal-body {
+                padding: 1rem 1.5rem 1.5rem;
+            }
+            .modal-title {
+                font-size: 1.25rem;
+            }
+        }
     </style>
     <link rel="canonical" href="https://breedinn.com/">
 </head>
@@ -830,13 +934,34 @@
                 <div class="footer-links">
                     <h4 class="footer-title">Learn More</h4>
                     <ul class="footer-link-list">
-                        <li><a href="about.html" class="footer-link">About us</a></li>
+                        <li><a href="#" class="footer-link" onclick="openAboutModal()">About us</a></li>
                         <li><a href="price.html" class="footer-link">Price</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal-overlay" onclick="closeAboutModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title">We have a strong story behind this product</h2>
+                <button class="modal-close" onclick="closeAboutModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-paragraph">Bruno has dedicated all his life to horses and now, as an equine veterinarian and manager of an Equine Breeding Center, he commits himself on helping breeders on the pursuit of their dream: a Champion!</p>
+                
+                <p class="modal-paragraph">The Breedinn was born based on the needs and lack of solutions in the equine breeding industry for an easier, quicker and more transparent breeding stallion management between stallion owners, stallion stations, agents and breeding centers.</p>
+                
+                <p class="modal-paragraph">As a Breeding Center manager, the communication with stallion / semen owners is key for an efficient and transparent partnership, and often it's a time-consuming task to gather all the info that needs to be transmitted, and sometimes with delays.</p>
+                
+                <p class="modal-paragraph">Being also Agent for some important European stallion stations, Bruno always felt the concern of these enterprises on controlling their stocks throughout their agents around the world.</p>
+                
+                <p class="modal-final"><strong>This was the starting point for the creation of Breedinn!</strong></p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

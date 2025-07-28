@@ -175,3 +175,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Breedinn website initialized successfully!');
 });
+
+// Modal functions
+function openAboutModal() {
+    const modal = document.getElementById('aboutModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeAboutModal() {
+    const modal = document.getElementById('aboutModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+// Close modal when pressing Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeAboutModal();
+    }
+});
