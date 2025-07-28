@@ -41,12 +41,22 @@
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
             gap: 2rem;
             margin-bottom: 3rem;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
+        }
+        .features-grid .feature-card:nth-child(4),
+        .features-grid .feature-card:nth-child(5) {
+            grid-column-start: 1;
+            grid-column-end: span 1;
+        }
+        .features-grid .feature-card:nth-child(4) {
+            grid-column: 1 / 2;
+        }
+        .features-grid .feature-card:nth-child(5) {
+            grid-column: 3 / 4;
         }
         .feature-card {
             background: white;
@@ -125,9 +135,12 @@
             }
             .features-grid {
                 grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, 1fr);
                 gap: 1.5rem;
                 margin-bottom: 2rem;
+            }
+            .features-grid .feature-card:nth-child(4),
+            .features-grid .feature-card:nth-child(5) {
+                grid-column: auto;
             }
             .feature-card {
                 padding: 1.5rem;
@@ -280,21 +293,6 @@
                     </div>
                     <h3 class="feature-title">Automated Reporting</h3>
                     <p class="feature-description">Generate inventory reports, breeding summaries, and financial analytics automatically. Save hours of manual work.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <div class="icon-circle">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 7v10c0 2.21 1.79 4 4 4h8c2.21 0 4-1.79 4-4V7"></path>
-                                <path d="M22 7H2l2-4h16l2 4z"></path>
-                                <circle cx="9" cy="12" r="1"></circle>
-                                <circle cx="15" cy="12" r="1"></circle>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="feature-title">Centralized Data Management</h3>
-                    <p class="feature-description">All your frozen semen inventory, client information, and breeding records in one secure platform. No more scattered Excel files.</p>
                 </div>
             </div>
             
