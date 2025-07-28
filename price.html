@@ -289,18 +289,164 @@
                 padding: 1.5rem 1rem;
             }
         }
+
+        /* Contact Modal Styles */
+        .contact-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none !important;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(2px);
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .contact-modal-overlay.active {
+            display: flex !important;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .contact-modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: contactModalSlideIn 0.3s ease-out;
+        }
+
+        .contact-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .contact-modal-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .contact-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+            padding: 0.25rem;
+            line-height: 1;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-modal-close:hover {
+            background-color: #f1f5f9;
+            color: #374151;
+        }
+
+        .contact-modal-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+            margin: 0;
+            padding: 0 2rem 2rem;
+        }
+
+        .contact-form {
+            padding: 0 2rem 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: #374151;
+            background-color: #ffffff;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #059669;
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background-color: #059669;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .form-submit-btn:hover {
+            background-color: #047857;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(5, 150, 105, 0.3);
+        }
+
+        @keyframes contactModalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
+            <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
                 <h1>Breedinn</h1>
             </div>
             
             <div class="nav-right">
-                <button class="btn btn-red" onclick="handleTalkToUs()">Talk to us</button>
+                <a href="index.html" class="btn btn-light">← Home</a>
+                <button class="btn btn-red" onclick="openContactModal()">Talk to us</button>
                 <button class="btn btn-light" onclick="handleLogin()">Login</button>
                 <div class="language-flags">
                     <span class="flag" onclick="changeLanguage('en')" title="English">🇬🇧</span>
@@ -356,14 +502,52 @@
                 </li>
             </ul>
             
-            <button class="btn btn-green btn-large" onclick="handleTalkToUs()">Talk to us</button>
+            <button class="btn btn-green btn-large" onclick="openContactModal()">Talk to us</button>
         </div>
     </main>
 
+    
+    <!-- Contact Modal -->
+    <div id="contactModal" class="contact-modal-overlay">
+        <div class="contact-modal-content">
+            <div class="contact-modal-header">
+                <h2 class="contact-modal-title">Let's Talk</h2>
+                <button class="contact-modal-close" onclick="closeContactModal()">×</button>
+            </div>
+            <p class="contact-modal-subtitle">Reach out and we'll get back to you as soon as possible.</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="5" required placeholder="Tell us about your needs..."></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        function handleTalkToUs() {
-            console.log('Talk to us clicked');
-            // Add your contact logic here
+        function openContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
         function handleLogin() {
@@ -375,6 +559,28 @@
             console.log('Language changed to:', lang);
             // Add your language switching logic here
         }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeContactModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeContactModal();
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            closeContactModal();
+        });
     </script>
 </body>
 </html>
