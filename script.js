@@ -1,18 +1,29 @@
 // Contact Modal Functions
 function openContactModal() {
+    console.log('Opening contact modal...');
     const modal = document.getElementById('contactModal');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    console.log('Modal element:', modal);
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        console.log('Modal should be visible now');
+    } else {
+        console.error('Contact modal not found!');
+    }
 }
 
 function closeContactModal() {
+    console.log('Closing contact modal...');
     const modal = document.getElementById('contactModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Restore scrolling
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
 }
 
 // Legacy function - now opens contact modal
 function handleTalkToUs() {
+    console.log('handleTalkToUs called (legacy)');
     openContactModal();
 }
 
@@ -165,6 +176,8 @@ function handleNavbarScroll() {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing...');
+    
     // Initialize scroll indicator animation
     animateScrollIndicator();
     
@@ -181,48 +194,64 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add click handlers for "Talk to Us" buttons
-    document.querySelectorAll('.talk-to-us-btn').forEach(button => {
+    const talkToUsButtons = document.querySelectorAll('.talk-to-us-btn');
+    console.log('Found talk-to-us buttons:', talkToUsButtons.length);
+    
+    talkToUsButtons.forEach((button, index) => {
+        console.log(`Setting up button ${index}:`, button);
         button.addEventListener('click', function(e) {
             e.preventDefault();
+            console.log('Talk to us button clicked!');
             openContactModal();
         });
     });
     
-    // Contact modal close handlers
+    // Contact modal setup
     const contactModal = document.getElementById('contactModal');
     const closeBtn = document.querySelector('.contact-modal-close');
     
-    // Close on X button click
-    closeBtn.addEventListener('click', closeContactModal);
+    console.log('Contact modal found:', !!contactModal);
+    console.log('Close button found:', !!closeBtn);
     
-    // Close when clicking outside the modal content
-    contactModal.addEventListener('click', function(e) {
-        if (e.target === contactModal) {
-            closeContactModal();
-        }
-    });
+    if (closeBtn) {
+        // Close on X button click
+        closeBtn.addEventListener('click', closeContactModal);
+    }
+    
+    if (contactModal) {
+        // Close when clicking outside the modal content
+        contactModal.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
+        });
+    }
     
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const name = formData.get('fullName');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        
-        // Here you would typically send the data to your backend
-        console.log('Contact form submitted:', { name, email, message });
-        
-        // Show success message (you could replace this with a proper success UI)
-        alert('Thank you for your message! We\'ll get back to you soon.');
-        
-        // Reset form and close modal
-        contactForm.reset();
-        closeContactModal();
-    });
+    console.log('Contact form found:', !!contactForm);
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('fullName');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Here you would typically send the data to your backend
+            console.log('Contact form submitted:', { name, email, message });
+            
+            // Show success message (you could replace this with a proper success UI)
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            
+            // Reset form and close modal
+            contactForm.reset();
+            closeContactModal();
+        });
+    }
     
     // Load saved language preference
     const savedLanguage = localStorage.getItem('preferred-language');
