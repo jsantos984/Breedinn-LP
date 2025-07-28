@@ -109,15 +109,26 @@ function animateScrollIndicator() {
     }, 2000);
 }
 
-// Smooth scrolling for potential future sections
+// Smooth scrolling for navigation links
 function smoothScroll(target) {
     const element = document.querySelector(target);
     if (element) {
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const elementPosition = element.offsetTop - navbarHeight - 20;
+        
+        window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
         });
     }
+}
+
+// Scroll to top function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 // Navbar scroll effect
@@ -148,6 +159,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize navbar scroll effect
     handleNavbarScroll();
     
+    // Add smooth scrolling to navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('href');
+            smoothScroll(target);
+        });
+    });
+    
     // Load saved language preference
     const savedLanguage = localStorage.getItem('preferred-language');
     if (savedLanguage) {
@@ -156,11 +176,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click handler for scroll indicator
     document.querySelector('.scroll-indicator').addEventListener('click', () => {
-        // Scroll to next section (when more content is added)
-        window.scrollBy({
-            top: window.innerHeight,
-            behavior: 'smooth'
-        });
+        // Scroll to the features section
+        smoothScroll('#how-it-works');
     });
     
     // Add keyboard navigation

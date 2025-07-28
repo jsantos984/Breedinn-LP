@@ -23,6 +23,12 @@ body {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.sticky-nav {
+    position: sticky;
+    top: 0;
 }
 
 .nav-container {
@@ -34,11 +40,81 @@ body {
     padding: 0 2rem;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+}
+
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #059669, #10b981);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
 .logo h1 {
     font-size: 1.8rem;
     font-weight: 700;
     color: #333;
     margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #059669;
+    background-color: rgba(5, 150, 105, 0.05);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #059669;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
 }
 
 .nav-right {
@@ -238,10 +314,23 @@ body {
     }
 }
 
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
         padding: 0 1rem;
+    }
+    
+    .nav-left {
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        display: none; /* Hide menu on mobile - could be replaced with hamburger */
     }
     
     .nav-right {

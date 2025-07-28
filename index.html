@@ -651,10 +651,19 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar sticky-nav">
         <div class="nav-container">
-            <div class="logo">
-                <h1>Breedinn</h1>
+            <div class="nav-left">
+                <div class="logo" onclick="scrollToTop()">
+                    <div class="logo-circle">B</div>
+                    <h1>Breedinn</h1>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="#who-its-for" class="nav-link">Who It's For</a>
+                    <a href="#benefits" class="nav-link">Benefits</a>
+                </div>
             </div>
             
             <div class="nav-right">
@@ -699,7 +708,7 @@
     </main>
 
     <!-- Features Section -->
-    <section class="features-section">
+    <section id="how-it-works" class="features-section">
         <div class="features-container">
             <div class="features-header">
                 <h2 class="features-title">All Your Frozen Semen Data in One Place</h2>
@@ -786,7 +795,7 @@
     </section>
 
     <!-- Built for Equine Professionals Section -->
-    <section class="equine-professionals-section">
+    <section id="who-its-for" class="equine-professionals-section">
         <div class="equine-container">
             <div class="equine-header">
                 <h2 class="equine-title">Built for Equine Reproduction. By Equine Vets to Equine Vets.</h2>
@@ -836,7 +845,7 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits-section">
+    <section id="benefits" class="benefits-section">
         <div class="benefits-container">
             <div class="benefits-header">
                 <h2 class="benefits-title">More Control. Fewer Mistakes. Happier Clients.</h2>
