@@ -218,8 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Contact modal setup
-    const contactModal = document.getElementById('contactModal');
+    // Contact modal setup (reusing contactModal variable from above)
     const closeBtn = document.querySelector('.contact-modal-close');
     
     console.log('Contact modal found:', !!contactModal);
