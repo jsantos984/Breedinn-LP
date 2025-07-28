@@ -591,12 +591,11 @@ body {
     }
 }
     
-    .btn-large {
-        padding: 0.875rem 1.5rem;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 280px;
-    }
+.btn-large {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 280px;
 }
 
 @media (max-width: 480px) {
