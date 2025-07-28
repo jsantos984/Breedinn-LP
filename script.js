@@ -178,6 +178,18 @@ function handleNavbarScroll() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing...');
     
+    // Ensure contact modal is properly hidden on page load
+    const contactModal = document.getElementById('contactModal');
+    if (contactModal) {
+        contactModal.classList.remove('active');
+        contactModal.style.display = 'none';
+        contactModal.style.visibility = 'hidden';
+        contactModal.style.opacity = '0';
+    }
+    
+    // Ensure body scroll is restored
+    document.body.style.overflow = 'auto';
+    
     // Initialize scroll indicator animation
     animateScrollIndicator();
     
