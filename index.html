@@ -440,6 +440,108 @@
                 font-size: 2rem;
             }
         }
+
+        /* Footer Section */
+        .footer-section {
+            background-color: #f5f5dc;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid #e5e5e5;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .footer-logo-circle {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #059669, #10b981);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        .footer-brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+        }
+        .footer-description {
+            font-size: 0.9rem;
+            color: #4b5563;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .footer-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        .footer-email {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4b5563;
+        }
+        .footer-email-link {
+            color: #059669;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer-email-link:hover {
+            text-decoration: underline;
+        }
+        .footer-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-link-list li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-link {
+            color: #059669;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 2rem 0 1.5rem;
+            }
+            .footer-container {
+                padding: 0 1rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-brand {
+                text-align: center;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+        }
     </style>
     <link rel="canonical" href="https://breedinn.com/">
 </head>
@@ -696,6 +798,45 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Brand Info Column -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-circle">
+                            B
+                        </div>
+                        <h3 class="footer-brand-name">Breedinn</h3>
+                    </div>
+                    <p class="footer-description">The professional frozen semen management platform built specifically for the equine breeding industry. Streamline your operations and improve client satisfaction.</p>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-email">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <a href="mailto:hello@breedinn.com" class="footer-email-link">hello@breedinn.com</a>
+                    </div>
+                </div>
+                
+                <!-- Links Column -->
+                <div class="footer-links">
+                    <h4 class="footer-title">Learn More</h4>
+                    <ul class="footer-link-list">
+                        <li><a href="about.html" class="footer-link">About us</a></li>
+                        <li><a href="price.html" class="footer-link">Price</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
