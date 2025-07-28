@@ -49,15 +49,14 @@
         }
         .features-grid .feature-card:nth-child(4),
         .features-grid .feature-card:nth-child(5) {
-            grid-row: 2;
+            grid-column-start: 1;
+            grid-column-end: span 1;
         }
         .features-grid .feature-card:nth-child(4) {
-            grid-column: 1;
-            margin-left: 25%;
+            grid-column: 1 / 2;
         }
         .features-grid .feature-card:nth-child(5) {
-            grid-column: 3;
-            margin-right: 25%;
+            grid-column: 3 / 4;
         }
         .feature-card {
             background: white;
@@ -142,8 +141,6 @@
             .features-grid .feature-card:nth-child(4),
             .features-grid .feature-card:nth-child(5) {
                 grid-column: auto;
-                margin-left: 0;
-                margin-right: 0;
             }
             .feature-card {
                 padding: 1.5rem;
