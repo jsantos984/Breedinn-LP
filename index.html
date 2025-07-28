@@ -163,6 +163,182 @@
                 padding: 1.25rem;
             }
         }
+
+        /* Equine Professionals Section */
+        .equine-professionals-section {
+            background-color: #ffffff;
+            padding: 5rem 0;
+        }
+        .equine-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .equine-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .equine-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .equine-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .equine-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .equine-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            background-image: linear-gradient(135deg, rgba(245, 247, 250, 0.3), rgba(255, 255, 255, 0.8));
+        }
+        .equine-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .equine-icon {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+        .equine-icon-circle {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+        }
+        .equine-card-title {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .equine-card-description {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .equine-cta {
+            margin-top: 3rem;
+        }
+        .equine-cta-content {
+            background-color: #f8fafc;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .equine-cta-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .equine-cta-description {
+            font-size: 1.125rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .equine-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .equine-title {
+                font-size: 2.25rem;
+            }
+            .equine-subtitle {
+                font-size: 1.125rem;
+            }
+            .equine-cta-content {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .equine-professionals-section {
+                padding: 3rem 0;
+            }
+            .equine-container {
+                padding: 0 1rem;
+            }
+            .equine-header {
+                margin-bottom: 3rem;
+            }
+            .equine-title {
+                font-size: 2rem;
+            }
+            .equine-subtitle {
+                font-size: 1rem;
+            }
+            .equine-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+            .equine-card {
+                padding: 2rem 1.5rem;
+            }
+            .equine-card-title {
+                font-size: 1.25rem;
+            }
+            .equine-card-description {
+                font-size: 0.95rem;
+            }
+            .equine-cta-content {
+                padding: 2rem 1.5rem;
+            }
+            .equine-cta-title {
+                font-size: 1.5rem;
+            }
+            .equine-cta-description {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .equine-professionals-section {
+                padding: 2rem 0;
+            }
+            .equine-title {
+                font-size: 1.75rem;
+            }
+            .equine-card {
+                padding: 1.5rem 1.25rem;
+            }
+            .equine-cta-content {
+                padding: 1.5rem 1rem;
+            }
+        }
     </style>
     <link rel="canonical" href="https://breedinn.com/">
 </head>
@@ -298,6 +474,56 @@
             
             <div class="features-cta">
                 <button class="btn btn-green btn-large" onclick="handleTalkToUs()">Talk to Us</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for Equine Professionals Section -->
+    <section class="equine-professionals-section">
+        <div class="equine-container">
+            <div class="equine-header">
+                <h2 class="equine-title">Built for Equine Reproduction. By Equine Vets to Equine Vets.</h2>
+                <p class="equine-subtitle">Breedinn is built for the professionals who make horse breeding happen. From collection to insemination, we support your entire workflow.</p>
+            </div>
+            
+            <div class="equine-grid">
+                <div class="equine-card">
+                    <div class="equine-icon">
+                        <div class="equine-icon-circle">
+                            🐎
+                        </div>
+                    </div>
+                    <h3 class="equine-card-title">Stallion Stations</h3>
+                    <p class="equine-card-description">Manage multiple stallions, track collection schedules, and coordinate with veterinarians. Keep breeding managers and clients updated on availability in real-time.</p>
+                </div>
+                
+                <div class="equine-card">
+                    <div class="equine-icon">
+                        <div class="equine-icon-circle">
+                            👨‍⚕️
+                        </div>
+                    </div>
+                    <h3 class="equine-card-title">Equine Veterinarians</h3>
+                    <p class="equine-card-description">Access inventory from the field, update insemination records on-site, and maintain complete breeding documentation. Perfect for mobile reproduction practices.</p>
+                </div>
+                
+                <div class="equine-card">
+                    <div class="equine-icon">
+                        <div class="equine-icon-circle">
+                            👩‍🌾
+                        </div>
+                    </div>
+                    <h3 class="equine-card-title">Horse Owners</h3>
+                    <p class="equine-card-description">Manage your breeding program efficiently. Track your horses, insemination dates, and offspring records all in one place.</p>
+                </div>
+            </div>
+            
+            <div class="equine-cta">
+                <div class="equine-cta-content">
+                    <h3 class="equine-cta-title">Sound Like You?</h3>
+                    <p class="equine-cta-description">If you work with frozen semen in the horse breeding industry, Breedinn was designed with you in mind.</p>
+                    <button class="btn btn-green btn-large" onclick="handleTalkToUs()">Talk to Us</button>
+                </div>
             </div>
         </div>
     </section>
