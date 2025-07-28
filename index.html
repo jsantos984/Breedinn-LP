@@ -1,24 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>breedinn-nova-leap</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breedinn - Frozen Semen Stock Management</title>
+    <meta name="description" content="Track, control, and share semen stock in real time with Breedinn's professional breeding management system.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://breedinn.com/">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Breedinn</h1>
+            </div>
+            
+            <div class="nav-right">
+                <button class="btn btn-red" onclick="handleTalkToUs()">Talk to us</button>
+                <button class="btn btn-light" onclick="handleLogin()">Login</button>
+                <div class="language-flags">
+                    <span class="flag" onclick="changeLanguage('en')" title="English">🇬🇧</span>
+                    <span class="flag" onclick="changeLanguage('pt')" title="Português">🇵🇹</span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <meta property="og:title" content="breedinn-nova-leap" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-headline">Frozen Semen Stock Management.</h1>
+            <h2 class="hero-subheadline">Finally Done Right.</h2>
+            <p class="hero-paragraph">Track, control, and share semen stock in real time — no more chaos.</p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-green btn-large" onclick="requestDemo()">Request a Demo</button>
+                <button class="btn btn-disabled btn-large" disabled>See How It Works</button>
+            </div>
+        </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="scroll-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </main>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
