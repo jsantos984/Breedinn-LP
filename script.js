@@ -261,12 +261,24 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Get form data
             const formData = new FormData(contactForm);
-            const name = formData.get('fullName');
+            const firstName = formData.get('firstName');
+            const lastName = formData.get('lastName');
             const email = formData.get('email');
             const message = formData.get('message');
             
+            // Validate required fields
+            if (!firstName || !email) {
+                alert('Please fill in all required fields (First Name and Email).');
+                return;
+            }
+            
             // Here you would typically send the data to your backend
-            console.log('Contact form submitted:', { name, email, message });
+            console.log('Contact form submitted:', { 
+                firstName, 
+                lastName, 
+                email, 
+                message 
+            });
             
             // Show success message (you could replace this with a proper success UI)
             alert('Thank you for your message! We\'ll get back to you soon.');
