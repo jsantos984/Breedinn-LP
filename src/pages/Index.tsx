@@ -49,15 +49,6 @@ const Index = () => {
             <Button variant="green" size="lg" className="text-lg px-8 py-4">
               Request a Demo
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              disabled 
-              className="text-lg px-8 py-4 bg-white/10 border-white/20 text-white/50 cursor-not-allowed hover:bg-white/10"
-            >
-              See How It Works
-            </Button>
-          </div>
         </div>
 
         {/* Scroll Indicator */}
