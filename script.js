@@ -218,6 +218,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Add click handlers for contact modal trigger buttons
+    const contactModalTriggers = document.querySelectorAll('.contact-modal-trigger');
+    console.log('Found contact modal trigger buttons:', contactModalTriggers.length);
+    
+    contactModalTriggers.forEach((button, index) => {
+        console.log(`Setting up contact trigger button ${index}:`, button);
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Contact modal trigger button clicked!');
+            openContactModal();
+        });
+    });
+    
     // Contact modal setup (reusing contactModal variable from above)
     const closeBtn = document.querySelector('.contact-modal-close');
     
