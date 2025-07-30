@@ -441,6 +441,138 @@
             }
         }
 
+        /* Pricing Section */
+        .pricing-section {
+            background-color: #ffffff;
+            padding: 5rem 0;
+        }
+        .pricing-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        .pricing-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 2px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #059669, #10b981);
+        }
+        .pricing-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        .pricing-price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+        .pricing-currency {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #059669;
+            margin-right: 0.25rem;
+        }
+        .pricing-amount {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1;
+        }
+        .pricing-period {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #64748b;
+            margin-left: 0.25rem;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2.5rem 0;
+            text-align: left;
+        }
+        .pricing-feature {
+            font-size: 1rem;
+            color: #374151;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.5;
+        }
+        .pricing-feature:last-child {
+            margin-bottom: 0;
+        }
+        .pricing-button {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+        }
+        .pricing-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.4);
+        }
+        .pricing-button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-section {
+                padding: 3rem 0;
+            }
+            .pricing-container {
+                padding: 0 1rem;
+            }
+            .pricing-card {
+                padding: 2rem 1.5rem;
+            }
+            .pricing-title {
+                font-size: 1.75rem;
+            }
+            .pricing-amount {
+                font-size: 3rem;
+            }
+            .pricing-button {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-card {
+                padding: 1.5rem 1rem;
+            }
+            .pricing-title {
+                font-size: 1.5rem;
+            }
+            .pricing-amount {
+                font-size: 2.5rem;
+            }
+        }
+
         /* Footer Section */
         .footer-section {
             background-color: #f5f5dc;
@@ -909,6 +1041,29 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <h2 class="pricing-title">Breedinn Plan</h2>
+                <div class="pricing-price">
+                    <span class="pricing-currency">€</span>
+                    <span class="pricing-amount">20</span>
+                    <span class="pricing-period">/month</span>
+                </div>
+                <ul class="pricing-features">
+                    <li class="pricing-feature">✓ Up to 5 users</li>
+                    <li class="pricing-feature">✓ Unlimited horses/owners</li>
+                    <li class="pricing-feature">✓ Full tracking capabilities</li>
+                    <li class="pricing-feature">✓ Real-time stock management</li>
+                    <li class="pricing-feature">✓ Advanced reporting</li>
+                    <li class="pricing-feature">✓ 24/7 customer support</li>
+                </ul>
+                <button class="pricing-button contact-modal-trigger">Talk to Us</button>
             </div>
         </div>
     </section>
