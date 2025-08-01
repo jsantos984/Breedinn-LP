@@ -1309,6 +1309,10 @@
             const enElements = document.querySelectorAll('[data-lang="en"]');
             const ptElements = document.querySelectorAll('[data-lang="pt"]');
             
+            // Reset all elements first
+            enElements.forEach(el => el.style.display = '');
+            ptElements.forEach(el => el.style.display = '');
+            
             if (language === 'pt') {
                 // Show Portuguese, hide English
                 enElements.forEach(el => el.style.display = 'none');
@@ -1343,6 +1347,7 @@
         // Load saved language on page load
         document.addEventListener('DOMContentLoaded', function() {
             const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+            console.log('Loading saved language:', savedLanguage);
             changeLanguage(savedLanguage);
         });
     </script>
