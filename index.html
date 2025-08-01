@@ -1201,6 +1201,51 @@
     </div>
 
 
+    <!-- Language switcher script -->
+    <script>
+        function changeLanguage(language) {
+            console.log('Language changed to:', language);
+            
+            // Hide all language elements
+            const enElements = document.querySelectorAll('[data-lang="en"]');
+            const ptElements = document.querySelectorAll('[data-lang="pt"]');
+            
+            if (language === 'pt') {
+                enElements.forEach(el => el.style.display = 'none');
+                ptElements.forEach(el => el.style.display = 'inline');
+            } else {
+                ptElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'inline');
+            }
+            
+            // Store language preference
+            localStorage.setItem('preferred-language', language);
+            
+            // Visual feedback for flags
+            const flags = document.querySelectorAll('.flag');
+            flags.forEach(flag => {
+                flag.style.opacity = '0.6';
+            });
+            
+            const selectedFlag = language === 'en' ? flags[0] : flags[1];
+            if (selectedFlag) {
+                selectedFlag.style.opacity = '1';
+            }
+            
+            setTimeout(() => {
+                flags.forEach(flag => {
+                    flag.style.opacity = '1';
+                });
+            }, 1000);
+        }
+        
+        // Load saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+            changeLanguage(savedLanguage);
+        });
+    </script>
+    
     <script type="module" src="script.js"></script>
 </body>
 </html>
