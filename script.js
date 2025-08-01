@@ -36,15 +36,20 @@ function handleLogin() {
 function changeLanguage(language) {
     console.log(`Language changed to: ${language}`);
     
+    // Hide all language elements
+    const enElements = document.querySelectorAll('[data-lang="en"]');
+    const ptElements = document.querySelectorAll('[data-lang="pt"]');
+    
+    if (language === 'pt') {
+        enElements.forEach(el => el.style.display = 'none');
+        ptElements.forEach(el => el.style.display = 'inline');
+    } else {
+        ptElements.forEach(el => el.style.display = 'none');
+        enElements.forEach(el => el.style.display = 'inline');
+    }
+    
     // Store language preference
     localStorage.setItem('preferred-language', language);
-    
-    // Update content based on language
-    if (language === 'pt') {
-        updateContentToPortuguese();
-    } else {
-        updateContentToEnglish();
-    }
     
     // Visual feedback
     const flags = document.querySelectorAll('.flag');
@@ -53,7 +58,9 @@ function changeLanguage(language) {
     });
     
     const selectedFlag = language === 'en' ? flags[0] : flags[1];
-    selectedFlag.style.opacity = '1';
+    if (selectedFlag) {
+        selectedFlag.style.opacity = '1';
+    }
     
     setTimeout(() => {
         flags.forEach(flag => {
@@ -70,57 +77,6 @@ function requestDemo() {
     // or open a modal form
 }
 
-function updateContentToPortuguese() {
-    // Update text content to Portuguese
-    const content = {
-        headline: 'Gestão de Stock de Sémen Congelado.',
-        subheadline: 'Finalmente Feito da Forma Certa.',
-        paragraph: 'Rastreie, controle e partilhe stock de sémen em tempo real — sem mais caos.',
-        demoButton: 'Solicitar Demo',
-        worksButton: 'Ver Como Funciona',
-        talkButton: 'Fale Connosco',
-        loginButton: 'Entrar'
-    };
-    
-    document.querySelector('.hero-headline').textContent = content.headline;
-    document.querySelector('.hero-subheadline').textContent = content.subheadline;
-    document.querySelector('.hero-paragraph').textContent = content.paragraph;
-    document.querySelector('.btn-green').textContent = content.demoButton;
-    document.querySelector('.btn-disabled').textContent = content.worksButton;
-    
-    // Update navigation buttons with correct classes
-    const navTalkBtn = document.querySelector('.nav-btn-red');
-    if (navTalkBtn) navTalkBtn.textContent = content.talkButton;
-    
-    // Update meta description
-    document.querySelector('meta[name="description"]').setAttribute('content', 'Rastreie, controle e partilhe stock de sémen em tempo real com o sistema profissional de gestão de criação da Breedinn.');
-}
-
-function updateContentToEnglish() {
-    // Reset to English content
-    const content = {
-        headline: 'Frozen Semen Stock Management.',
-        subheadline: 'Finally Done Right.',
-        paragraph: 'Track, control, and share semen stock in real time — no more chaos.',
-        demoButton: 'Request a Demo',
-        worksButton: 'See How It Works',
-        talkButton: 'Talk to us',
-        loginButton: 'Login'
-    };
-    
-    document.querySelector('.hero-headline').textContent = content.headline;
-    document.querySelector('.hero-subheadline').textContent = content.subheadline;
-    document.querySelector('.hero-paragraph').textContent = content.paragraph;
-    document.querySelector('.btn-green').textContent = content.demoButton;
-    document.querySelector('.btn-disabled').textContent = content.worksButton;
-    
-    // Update navigation buttons with correct classes
-    const navTalkBtn = document.querySelector('.nav-btn-red');
-    if (navTalkBtn) navTalkBtn.textContent = content.talkButton;
-    
-    // Update meta description
-    document.querySelector('meta[name="description"]').setAttribute('content', 'Track, control, and share semen stock in real time with Breedinn\'s professional breeding management system.');
-}
 
 // Scroll indicator animation
 function animateScrollIndicator() {

@@ -778,6 +778,11 @@
                 font-size: 1.25rem;
             }
         }
+
+        /* Language Switcher Styles */
+        [data-lang="pt"] {
+            display: none;
+        }
     </style>
     <link rel="canonical" href="https://breedinn.com/">
 </head>
@@ -793,15 +798,30 @@
             
             <!-- Center: Navigation Links -->
             <div class="navbar-links">
-                <a href="#how-it-works" class="nav-link">How It Works</a>
-                <a href="#who-its-for" class="nav-link">Who It's For</a>
-                <a href="#benefits" class="nav-link">Benefits</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#how-it-works" class="nav-link">
+                    <span data-lang="en">How It Works</span>
+                    <span data-lang="pt">Como Funciona</span>
+                </a>
+                <a href="#who-its-for" class="nav-link">
+                    <span data-lang="en">Who It's For</span>
+                    <span data-lang="pt">Para Quem</span>
+                </a>
+                <a href="#benefits" class="nav-link">
+                    <span data-lang="en">Benefits</span>
+                    <span data-lang="pt">Benefícios</span>
+                </a>
+                <a href="#pricing" class="nav-link">
+                    <span data-lang="en">Pricing</span>
+                    <span data-lang="pt">Preços</span>
+                </a>
             </div>
             
             <!-- Right Side: Buttons and Flags -->
             <div class="navbar-right">
-                <button class="nav-btn nav-btn-red talk-to-us-btn contact-scroll-trigger">Talk to us</button>
+                <button class="nav-btn nav-btn-red talk-to-us-btn contact-scroll-trigger">
+                    <span data-lang="en">Talk to us</span>
+                    <span data-lang="pt">Fale Connosco</span>
+                </button>
                 <div class="language-flags">
                     <span class="flag" onclick="changeLanguage('en')" title="English">🇬🇧</span>
                     <span class="flag" onclick="changeLanguage('pt')" title="Português">🇵🇹</span>
@@ -815,13 +835,28 @@
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <h1 class="hero-headline">Frozen Semen Stock Management.</h1>
-            <h2 class="hero-subheadline">Finally Done Right.</h2>
-            <p class="hero-paragraph">Track, control, and share semen stock in real time — no more chaos.</p>
+            <h1 class="hero-headline">
+                <span data-lang="en">Frozen Semen Stock Management.</span>
+                <span data-lang="pt">Gestão de Stock de Sémen Congelado.</span>
+            </h1>
+            <h2 class="hero-subheadline">
+                <span data-lang="en">Finally Done Right.</span>
+                <span data-lang="pt">Finalmente Bem Feito.</span>
+            </h2>
+            <p class="hero-paragraph">
+                <span data-lang="en">Track, control, and share semen stock in real time — no more chaos.</span>
+                <span data-lang="pt">Acompanhe, controle e partilhe stock de sémen em tempo real — sem mais caos.</span>
+            </p>
             
             <div class="hero-buttons">
-                <button class="btn btn-green btn-large" onclick="requestDemo()">Request a Demo</button>
-                <button class="btn btn-disabled btn-large" disabled>See How It Works</button>
+                <button class="btn btn-green btn-large" onclick="requestDemo()">
+                    <span data-lang="en">Request a Demo</span>
+                    <span data-lang="pt">Solicitar Demonstração</span>
+                </button>
+                <button class="btn btn-disabled btn-large" disabled>
+                    <span data-lang="en">See How It Works</span>
+                    <span data-lang="pt">Veja Como Funciona</span>
+                </button>
             </div>
         </div>
 
@@ -844,8 +879,14 @@
     <section id="how-it-works" class="features-section">
         <div class="features-container">
             <div class="features-header">
-                <h2 class="features-title">All Your Frozen Semen Data in One Place</h2>
-                <p class="features-subtitle">Breedinn transforms how veterinarians and stallion stations manage their frozen semen inventory. Simple, powerful, and built specifically for horse breeding professionals.</p>
+                <h2 class="features-title">
+                    <span data-lang="en">All Your Frozen Semen Data in One Place</span>
+                    <span data-lang="pt">Todos os Seus Dados de Sémen Congelado Num Só Local</span>
+                </h2>
+                <p class="features-subtitle">
+                    <span data-lang="en">Breedinn transforms how veterinarians and stallion stations manage their frozen semen inventory. Simple, powerful, and built specifically for horse breeding professionals.</span>
+                    <span data-lang="pt">O Breedinn transforma como veterinários e estações de garanhões gerem o seu inventário de sémen congelado. Simples, poderoso e construído especificamente para profissionais de criação equina.</span>
+                </p>
             </div>
             
             <div class="features-grid">
@@ -860,8 +901,14 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 class="feature-title">Centralized Data Management</h3>
-                    <p class="feature-description">All your frozen semen inventory, client information, and breeding records in one secure platform. No more scattered Excel files.</p>
+                    <h3 class="feature-title">
+                        <span data-lang="en">Centralized Data Management</span>
+                        <span data-lang="pt">Gestão Centralizada de Dados</span>
+                    </h3>
+                    <p class="feature-description">
+                        <span data-lang="en">All your frozen semen inventory, client information, and breeding records in one secure platform. No more scattered Excel files.</span>
+                        <span data-lang="pt">Todo o seu inventário de sémen congelado, informação de clientes e registos de reprodução numa plataforma segura. Não mais ficheiros Excel dispersos.</span>
+                    </p>
                 </div>
                 
                 <div class="feature-card">
@@ -873,8 +920,14 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 class="feature-title">Real-Time Stock Tracking</h3>
-                    <p class="feature-description">Live inventory updates across all locations. Know exactly what's available, reserved, or shipped at any moment.</p>
+                    <h3 class="feature-title">
+                        <span data-lang="en">Real-Time Stock Tracking</span>
+                        <span data-lang="pt">Rastreamento de Stock em Tempo Real</span>
+                    </h3>
+                    <p class="feature-description">
+                        <span data-lang="en">Live inventory updates across all locations. Know exactly what's available, reserved, or shipped at any moment.</span>
+                        <span data-lang="pt">Actualizações de inventário em tempo real em todas as localizações. Saiba exactamente o que está disponível, reservado ou enviado a qualquer momento.</span>
+                    </p>
                 </div>
                 
                 <div class="feature-card">
@@ -886,8 +939,14 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 class="feature-title">Smart Search & Filtering</h3>
-                    <p class="feature-description">Find any stallion, bloodline, or stock item instantly. Filter by availability, location, and more.</p>
+                    <h3 class="feature-title">
+                        <span data-lang="en">Smart Search & Filtering</span>
+                        <span data-lang="pt">Pesquisa e Filtragem Inteligente</span>
+                    </h3>
+                    <p class="feature-description">
+                        <span data-lang="en">Find any stallion, bloodline, or stock item instantly. Filter by availability, location, and more.</span>
+                        <span data-lang="pt">Encontre qualquer garanhão, linhagem ou item de stock instantaneamente. Filtre por disponibilidade, localização e mais.</span>
+                    </p>
                 </div>
                 
                 <div class="feature-card">
@@ -901,8 +960,14 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 class="feature-title">Client & Agent Sharing</h3>
-                    <p class="feature-description">Give clients and agents controlled access to view availability and place orders directly. Transparency builds trust.</p>
+                    <h3 class="feature-title">
+                        <span data-lang="en">Client & Agent Sharing</span>
+                        <span data-lang="pt">Partilha com Clientes e Agentes</span>
+                    </h3>
+                    <p class="feature-description">
+                        <span data-lang="en">Give clients and agents controlled access to view availability and place orders directly. Transparency builds trust.</span>
+                        <span data-lang="pt">Dê aos clientes e agentes acesso controlado para ver disponibilidade e fazer pedidos directamente. A transparência constrói confiança.</span>
+                    </p>
                 </div>
                 
                 <div class="feature-card">
@@ -916,8 +981,14 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 class="feature-title">Automated Reporting</h3>
-                    <p class="feature-description">Generate inventory reports and breeding summaries automatically. Save hours of manual work.</p>
+                    <h3 class="feature-title">
+                        <span data-lang="en">Automated Reporting</span>
+                        <span data-lang="pt">Relatórios Automatizados</span>
+                    </h3>
+                    <p class="feature-description">
+                        <span data-lang="en">Generate inventory reports and breeding summaries automatically. Save hours of manual work.</span>
+                        <span data-lang="pt">Gere relatórios de inventário e resumos de reprodução automaticamente. Poupe horas de trabalho manual.</span>
+                    </p>
                 </div>
             </div>
             
