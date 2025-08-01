@@ -173,6 +173,7 @@ function handleNavbarScroll() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing...');
+    console.log('Script.js is running!');
     
     // Ensure contact modal is properly hidden on page load
     const contactModal = document.getElementById('contactModal');
@@ -204,28 +205,41 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click handlers for contact scroll triggers (smooth scroll to footer) - PRIORITY HANDLER
     const contactScrollTriggers = document.querySelectorAll('.contact-scroll-trigger');
     console.log('Found contact scroll trigger buttons:', contactScrollTriggers.length);
+    console.log('Contact scroll trigger buttons:', contactScrollTriggers);
+    
+    // Check if contact footer exists
+    const contactFooter = document.getElementById('contact-footer');
+    console.log('Contact footer element found:', !!contactFooter, contactFooter);
     
     contactScrollTriggers.forEach((button, index) => {
-        console.log(`Setting up contact scroll trigger button ${index}:`, button);
+        console.log(`Setting up contact scroll trigger button ${index}:`, button.textContent, button.className);
         
-        // Remove any existing listeners to prevent conflicts
-        button.onclick = null;
+        // Clear any existing handlers
+        button.removeAttribute('onclick');
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
         
-        button.addEventListener('click', function(e) {
+        newButton.addEventListener('click', function(e) {
+            console.log('SCROLL BUTTON CLICKED!', this.textContent);
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
-            console.log('Contact scroll trigger button clicked!');
             
-            const contactFooter = document.getElementById('contact-footer');
-            if (contactFooter) {
-                contactFooter.scrollIntoView({
+            const footer = document.getElementById('contact-footer');
+            console.log('Footer element check:', !!footer);
+            
+            if (footer) {
+                console.log('Scrolling to footer...');
+                footer.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+                console.log('Scroll command executed');
+            } else {
+                console.error('Footer element not found!');
             }
             return false;
-        }, true); // Use capture phase to ensure this runs first
+        });
     });
     
     // Contact modal setup (reusing contactModal variable from above)
