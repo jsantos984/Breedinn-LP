@@ -201,16 +201,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add click handlers for contact scroll triggers (smooth scroll to footer)
+    // Add click handlers for contact scroll triggers (smooth scroll to footer) - PRIORITY HANDLER
     const contactScrollTriggers = document.querySelectorAll('.contact-scroll-trigger');
     console.log('Found contact scroll trigger buttons:', contactScrollTriggers.length);
     
     contactScrollTriggers.forEach((button, index) => {
         console.log(`Setting up contact scroll trigger button ${index}:`, button);
+        
+        // Remove any existing listeners to prevent conflicts
+        button.onclick = null;
+        
         button.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
             console.log('Contact scroll trigger button clicked!');
+            
             const contactFooter = document.getElementById('contact-footer');
             if (contactFooter) {
                 contactFooter.scrollIntoView({
@@ -218,33 +224,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     block: 'start'
                 });
             }
-        });
-    });
-    
-    // Add click handlers for other "Talk to Us" buttons (legacy ones without contact-scroll-trigger class)
-    const legacyTalkToUsButtons = document.querySelectorAll('.talk-to-us-btn:not(.contact-scroll-trigger)');
-    console.log('Found legacy talk-to-us buttons:', legacyTalkToUsButtons.length);
-    
-    legacyTalkToUsButtons.forEach((button, index) => {
-        console.log(`Setting up legacy button ${index}:`, button);
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Legacy talk to us button clicked!');
-            openContactModal();
-        });
-    });
-    
-    // Add click handlers for contact modal trigger buttons (only ones without contact-scroll-trigger class)
-    const contactModalTriggers = document.querySelectorAll('.contact-modal-trigger:not(.contact-scroll-trigger)');
-    console.log('Found contact modal trigger buttons:', contactModalTriggers.length);
-    
-    contactModalTriggers.forEach((button, index) => {
-        console.log(`Setting up contact trigger button ${index}:`, button);
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Contact modal trigger button clicked!');
-            openContactModal();
-        });
+            return false;
+        }, true); // Use capture phase to ensure this runs first
     });
     
     // Contact modal setup (reusing contactModal variable from above)
