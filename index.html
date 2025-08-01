@@ -1303,28 +1303,42 @@
     <!-- Language switcher script -->
     <script>
         function changeLanguage(language) {
-            console.log('Language changed to:', language);
+            console.log('=== Language change to:', language, '===');
             
             // Get all language elements
             const enElements = document.querySelectorAll('[data-lang="en"]');
             const ptElements = document.querySelectorAll('[data-lang="pt"]');
             
-            // Reset all elements first
-            enElements.forEach(el => el.style.display = '');
-            ptElements.forEach(el => el.style.display = '');
+            console.log('Found English elements:', enElements.length);
+            console.log('Found Portuguese elements:', ptElements.length);
             
             if (language === 'pt') {
+                console.log('Switching to Portuguese...');
                 // Show Portuguese, hide English
-                enElements.forEach(el => el.style.display = 'none');
-                ptElements.forEach(el => el.style.display = 'inline');
+                enElements.forEach(el => {
+                    el.style.display = 'none';
+                    console.log('Hiding EN element:', el.textContent?.substring(0, 30));
+                });
+                ptElements.forEach(el => {
+                    el.style.display = 'inline';
+                    console.log('Showing PT element:', el.textContent?.substring(0, 30));
+                });
             } else {
+                console.log('Switching to English...');
                 // Show English, hide Portuguese  
-                ptElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'inline');
+                ptElements.forEach(el => {
+                    el.style.display = 'none';
+                    console.log('Hiding PT element:', el.textContent?.substring(0, 30));
+                });
+                enElements.forEach(el => {
+                    el.style.display = 'inline';
+                    console.log('Showing EN element:', el.textContent?.substring(0, 30));
+                });
             }
             
             // Store language preference
             localStorage.setItem('preferred-language', language);
+            console.log('Language preference saved:', language);
             
             // Visual feedback for flags
             const flags = document.querySelectorAll('.flag');
