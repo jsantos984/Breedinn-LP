@@ -244,11 +244,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Load saved language preference
-    const savedLanguage = localStorage.getItem('preferred-language');
-    if (savedLanguage) {
-        changeLanguage(savedLanguage);
-    }
+    // Load saved language preference and initialize language switcher
+    const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+    changeLanguage(savedLanguage);
+    
+    console.log('Language switcher initialized with language:', savedLanguage);
     
     // Add click handler for scroll indicator
     document.querySelector('.scroll-indicator').addEventListener('click', () => {
