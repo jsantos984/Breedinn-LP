@@ -201,21 +201,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add click handlers for "Talk to Us" buttons
-    const talkToUsButtons = document.querySelectorAll('.talk-to-us-btn');
-    console.log('Found talk-to-us buttons:', talkToUsButtons.length);
+    // Add click handlers for contact scroll triggers (smooth scroll to footer)
+    const contactScrollTriggers = document.querySelectorAll('.contact-scroll-trigger');
+    console.log('Found contact scroll trigger buttons:', contactScrollTriggers.length);
     
-    talkToUsButtons.forEach((button, index) => {
-        console.log(`Setting up button ${index}:`, button);
+    contactScrollTriggers.forEach((button, index) => {
+        console.log(`Setting up contact scroll trigger button ${index}:`, button);
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('Talk to us button clicked!');
+            console.log('Contact scroll trigger button clicked!');
+            const contactFooter = document.getElementById('contact-footer');
+            if (contactFooter) {
+                contactFooter.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Add click handlers for "Talk to Us" buttons (for backward compatibility)
+    const talkToUsButtons = document.querySelectorAll('.talk-to-us-btn:not(.contact-scroll-trigger)');
+    console.log('Found legacy talk-to-us buttons:', talkToUsButtons.length);
+    
+    talkToUsButtons.forEach((button, index) => {
+        console.log(`Setting up legacy button ${index}:`, button);
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Legacy talk to us button clicked!');
             openContactModal();
         });
     });
     
-    // Add click handlers for contact modal trigger buttons
-    const contactModalTriggers = document.querySelectorAll('.contact-modal-trigger');
+    // Add click handlers for contact modal trigger buttons (for backward compatibility)
+    const contactModalTriggers = document.querySelectorAll('.contact-modal-trigger:not(.contact-scroll-trigger)');
     console.log('Found contact modal trigger buttons:', contactModalTriggers.length);
     
     contactModalTriggers.forEach((button, index) => {
