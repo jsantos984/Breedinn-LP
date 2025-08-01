@@ -1,8 +1,42 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-horses.jpg";
 import { ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
+  const [language, setLanguage] = useState('en');
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    setLanguage(savedLang);
+  }, []);
+
+  const changeLanguage = (lang: string) => {
+    setLanguage(lang);
+    localStorage.setItem('language', lang);
+  };
+
+  const text = {
+    en: {
+      heroTitle: "Frozen Semen Stock Management.",
+      heroSubtitle: "Finally Done Right.",
+      heroDescription: "Track, control, and share semen stock in real time — no more chaos.",
+      requestDemo: "Request a Demo",
+      seeHowWorks: "See How It Works",
+      talkToUs: "Talk to us"
+    },
+    pt: {
+      heroTitle: "Gestão de Sémen Congelado.",
+      heroSubtitle: "Finalmente Bem Feito.",
+      heroDescription: "Acompanhe, controle e partilhe o stock de sémen em tempo real — sem mais confusão.",
+      requestDemo: "Pedir uma Demonstração",
+      seeHowWorks: "Ver Como Funciona",
+      talkToUs: "Fale Connosco"
+    }
+  };
+
+  const currentText = text[language as keyof typeof text];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation Bar */}
@@ -13,11 +47,23 @@ const Index = () => {
         
         <div className="flex items-center gap-4">
           <Button variant="red" size="sm">
-            Talk to us
+            {currentText.talkToUs}
           </Button>
           <div className="flex items-center gap-2 ml-2">
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🇬🇧</span>
-            <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🇵🇹</span>
+            <span 
+              className="text-2xl cursor-pointer hover:scale-110 transition-transform"
+              onClick={() => changeLanguage('en')}
+              title="English"
+            >
+              🇬🇧
+            </span>
+            <span 
+              className="text-2xl cursor-pointer hover:scale-110 transition-transform"
+              onClick={() => changeLanguage('pt')}
+              title="Português"
+            >
+              🇵🇹
+            </span>
           </div>
         </div>
       </nav>
@@ -33,18 +79,18 @@ const Index = () => {
         {/* Content */}
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-            Frozen Semen Stock Management.
+            {currentText.heroTitle}
           </h1>
           <h2 className="text-3xl md:text-4xl font-semibold mb-6" style={{ color: 'hsl(var(--brand-green))' }}>
-            Finally Done Right.
+            {currentText.heroSubtitle}
           </h2>
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto">
-            Track, control, and share semen stock in real time — no more chaos.
+            {currentText.heroDescription}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button variant="green" size="lg" className="text-lg px-8 py-4">
-              Request a Demo
+              {currentText.requestDemo}
             </Button>
             <Button 
               variant="outline" 
@@ -52,7 +98,7 @@ const Index = () => {
               disabled 
               className="text-lg px-8 py-4 bg-white/10 border-white/20 text-white/50 cursor-not-allowed hover:bg-white/10"
             >
-              See How It Works
+              {currentText.seeHowWorks}
             </Button>
           </div>
         </div>
