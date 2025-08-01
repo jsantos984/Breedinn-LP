@@ -1305,22 +1305,18 @@
         function changeLanguage(language) {
             console.log('Language changed to:', language);
             
-            // Hide all language elements
+            // Get all language elements
             const enElements = document.querySelectorAll('[data-lang="en"]');
             const ptElements = document.querySelectorAll('[data-lang="pt"]');
             
             if (language === 'pt') {
+                // Show Portuguese, hide English
                 enElements.forEach(el => el.style.display = 'none');
-                ptElements.forEach(el => {
-                    // Show Portuguese elements by removing the CSS hide rule
-                    el.style.display = 'inherit';
-                });
+                ptElements.forEach(el => el.style.display = 'inline');
             } else {
+                // Show English, hide Portuguese  
                 ptElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => {
-                    // Show English elements by removing any inline styles
-                    el.style.display = 'inherit';
-                });
+                enElements.forEach(el => el.style.display = 'inline');
             }
             
             // Store language preference
