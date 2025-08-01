@@ -12,6 +12,7 @@ const Index = () => {
   }, []);
 
   const changeLanguage = (lang: string) => {
+    console.log('Changing language to:', lang);
     setLanguage(lang);
     localStorage.setItem('language', lang);
   };
