@@ -1311,10 +1311,16 @@
             
             if (language === 'pt') {
                 enElements.forEach(el => el.style.display = 'none');
-                ptElements.forEach(el => el.style.display = '');
+                ptElements.forEach(el => {
+                    // Show Portuguese elements by removing the CSS hide rule
+                    el.style.display = 'inherit';
+                });
             } else {
                 ptElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = '');
+                enElements.forEach(el => {
+                    // Show English elements by removing any inline styles
+                    el.style.display = 'inherit';
+                });
             }
             
             // Store language preference
