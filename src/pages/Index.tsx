@@ -51,20 +51,22 @@ const Index = () => {
             {currentText.talkToUs}
           </Button>
           <div className="flex items-center gap-2 ml-2">
-            <span 
-              className="text-2xl cursor-pointer hover:scale-110 transition-transform"
+            <button 
+              className="text-2xl hover:scale-110 transition-transform p-1 border-none bg-transparent cursor-pointer"
               onClick={() => changeLanguage('en')}
               title="English"
+              type="button"
             >
               🇬🇧
-            </span>
-            <span 
-              className="text-2xl cursor-pointer hover:scale-110 transition-transform"
+            </button>
+            <button 
+              className="text-2xl hover:scale-110 transition-transform p-1 border-none bg-transparent cursor-pointer"
               onClick={() => changeLanguage('pt')}
               title="Português"
+              type="button"
             >
               🇵🇹
-            </span>
+            </button>
           </div>
         </div>
       </nav>
