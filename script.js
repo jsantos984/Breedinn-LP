@@ -90,9 +90,7 @@ function updateContentToPortuguese() {
     
     // Update navigation buttons with correct classes
     const navTalkBtn = document.querySelector('.nav-btn-red');
-    const navLoginBtn = document.querySelector('.nav-btn-gray');
     if (navTalkBtn) navTalkBtn.textContent = content.talkButton;
-    if (navLoginBtn) navLoginBtn.textContent = content.loginButton;
     
     // Update meta description
     document.querySelector('meta[name="description"]').setAttribute('content', 'Rastreie, controle e partilhe stock de sémen em tempo real com o sistema profissional de gestão de criação da Breedinn.');
@@ -118,9 +116,7 @@ function updateContentToEnglish() {
     
     // Update navigation buttons with correct classes
     const navTalkBtn = document.querySelector('.nav-btn-red');
-    const navLoginBtn = document.querySelector('.nav-btn-gray');
     if (navTalkBtn) navTalkBtn.textContent = content.talkButton;
-    if (navLoginBtn) navLoginBtn.textContent = content.loginButton;
     
     // Update meta description
     document.querySelector('meta[name="description"]').setAttribute('content', 'Track, control, and share semen stock in real time with Breedinn\'s professional breeding management system.');
