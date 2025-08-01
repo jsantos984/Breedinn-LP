@@ -15,9 +15,6 @@ const Index = () => {
           <Button variant="red" size="sm">
             Talk to us
           </Button>
-          <Button variant="light" size="sm">
-            Login
-          </Button>
           <div className="flex items-center gap-2 ml-2">
             <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🇬🇧</span>
             <span className="text-2xl cursor-pointer hover:scale-110 transition-transform">🇵🇹</span>
