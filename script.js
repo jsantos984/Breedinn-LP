@@ -209,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`Setting up contact scroll trigger button ${index}:`, button);
         button.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             console.log('Contact scroll trigger button clicked!');
             const contactFooter = document.getElementById('contact-footer');
             if (contactFooter) {
@@ -220,11 +221,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add click handlers for "Talk to Us" buttons (for backward compatibility)
-    const talkToUsButtons = document.querySelectorAll('.talk-to-us-btn:not(.contact-scroll-trigger)');
-    console.log('Found legacy talk-to-us buttons:', talkToUsButtons.length);
+    // Add click handlers for other "Talk to Us" buttons (legacy ones without contact-scroll-trigger class)
+    const legacyTalkToUsButtons = document.querySelectorAll('.talk-to-us-btn:not(.contact-scroll-trigger)');
+    console.log('Found legacy talk-to-us buttons:', legacyTalkToUsButtons.length);
     
-    talkToUsButtons.forEach((button, index) => {
+    legacyTalkToUsButtons.forEach((button, index) => {
         console.log(`Setting up legacy button ${index}:`, button);
         button.addEventListener('click', function(e) {
             e.preventDefault();
@@ -233,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add click handlers for contact modal trigger buttons (for backward compatibility)
+    // Add click handlers for contact modal trigger buttons (only ones without contact-scroll-trigger class)
     const contactModalTriggers = document.querySelectorAll('.contact-modal-trigger:not(.contact-scroll-trigger)');
     console.log('Found contact modal trigger buttons:', contactModalTriggers.length);
     
