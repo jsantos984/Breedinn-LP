@@ -1312,33 +1312,33 @@
             console.log('Found English elements:', enElements.length);
             console.log('Found Portuguese elements:', ptElements.length);
             
+            // First, reset all elements by removing inline styles
+            enElements.forEach(el => el.style.display = '');
+            ptElements.forEach(el => el.style.display = '');
+            
             if (language === 'pt') {
                 console.log('Switching to Portuguese...');
                 // Show Portuguese, hide English
                 enElements.forEach(el => {
                     el.style.display = 'none';
-                    console.log('Hiding EN element:', el.textContent?.substring(0, 30));
                 });
                 ptElements.forEach(el => {
                     el.style.display = 'inline';
-                    console.log('Showing PT element:', el.textContent?.substring(0, 30));
                 });
             } else {
                 console.log('Switching to English...');
                 // Show English, hide Portuguese  
                 ptElements.forEach(el => {
                     el.style.display = 'none';
-                    console.log('Hiding PT element:', el.textContent?.substring(0, 30));
                 });
                 enElements.forEach(el => {
                     el.style.display = 'inline';
-                    console.log('Showing EN element:', el.textContent?.substring(0, 30));
                 });
             }
             
             // Store language preference
             localStorage.setItem('preferred-language', language);
-            console.log('Language preference saved:', language);
+            console.log('Language switched to:', language);
             
             // Visual feedback for flags
             const flags = document.querySelectorAll('.flag');
@@ -1358,11 +1358,15 @@
             }, 1000);
         }
         
-        // Load saved language on page load
+        // Load saved language on page load and force English as default
         document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('preferred-language') || 'en';
-            console.log('Loading saved language:', savedLanguage);
-            changeLanguage(savedLanguage);
+            // Always start with English, then apply saved preference
+            changeLanguage('en');
+            
+            const savedLanguage = localStorage.getItem('preferred-language');
+            if (savedLanguage && savedLanguage === 'pt') {
+                setTimeout(() => changeLanguage('pt'), 100);
+            }
         });
     </script>
     
