@@ -33,8 +33,8 @@ function handleLogin() {
     // Example: window.location.href = '/login';
 }
 
-// Language switcher functionality
-function changeLanguage(language) {
+// Language switcher functionality - make it globally available
+window.changeLanguage = function(language) {
     console.log(`Language changed to: ${language}`);
     
     // Hide all language elements
@@ -68,7 +68,7 @@ function changeLanguage(language) {
             flag.style.opacity = '1';
         });
     }, 1000);
-}
+};
 
 
 function requestDemo() {
