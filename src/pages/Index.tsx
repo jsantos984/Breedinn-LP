@@ -91,9 +91,6 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button variant="green" size="lg" className="text-lg px-8 py-4">
-              {currentText.requestDemo}
-            </Button>
           </div>
         </div>
 
