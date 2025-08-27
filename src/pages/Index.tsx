@@ -99,8 +99,6 @@ const Index = () => {
           <div className="flex flex-col items-center">
             <div className="flex gap-1 mb-2">
               <div className="w-2 h-2 rounded-full bg-white/60"></div>
-              <div className="w-2 h-2 rounded-full bg-white/40"></div>
-              <div className="w-2 h-2 rounded-full bg-white/40"></div>
             </div>
             <ChevronDown className="w-6 h-6 text-white/80 animate-bounce" />
           </div>
