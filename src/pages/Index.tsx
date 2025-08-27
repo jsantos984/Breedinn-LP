@@ -23,7 +23,6 @@ const Index = () => {
       heroSubtitle: "Finally Done Right.",
       heroDescription: "Track, control, and share semen stock in real time — no more chaos.",
       requestDemo: "Request a Demo",
-      seeHowWorks: "See How It Works",
       talkToUs: "Talk to us"
     },
     pt: {
@@ -31,7 +30,6 @@ const Index = () => {
       heroSubtitle: "Finalmente Bem Feito.",
       heroDescription: "Acompanhe, controle e partilhe o stock de sémen em tempo real — sem mais confusão.",
       requestDemo: "Pedir uma Demonstração",
-      seeHowWorks: "Ver Como Funciona",
       talkToUs: "Fale Connosco"
     }
   };
@@ -95,14 +93,6 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button variant="green" size="lg" className="text-lg px-8 py-4">
               {currentText.requestDemo}
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              disabled 
-              className="text-lg px-8 py-4 bg-white/10 border-white/20 text-white/50 cursor-not-allowed hover:bg-white/10"
-            >
-              {currentText.seeHowWorks}
             </Button>
           </div>
         </div>
