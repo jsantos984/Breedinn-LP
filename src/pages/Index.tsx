@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-horses.jpg";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Index = () => {
@@ -47,8 +47,9 @@ const Index = () => {
         </div>
         
         <div className="flex items-center gap-4">
-          <Button variant="red" size="sm">
-            {currentText.talkToUs}
+          <Button variant="red" size="sm" className="flex items-center gap-2">
+            <Mail className="w-4 h-4" />
+            Contact: hello@breedinn.com
           </Button>
           <div className="flex items-center gap-2 ml-2">
             <button 
