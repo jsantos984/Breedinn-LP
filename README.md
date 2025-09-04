@@ -1,6 +1,11 @@
-# Vibecoding project
+# Landing Page Vibecoding 
 
 ## Project info
+Breedinn – Frozen Semen Management Solution
+This repository contains the public landing page of Breedinn, a solution for the equine breeding industry. The landing page was developed to showcase the project's value to users and partners, serving as the entry point for the product launch.
+
+About Breedinn
+Breedinn is a solution that helps Stallion Stations, Veterinarians, and Stallion Owners with real-time traceability. The website introduces the value of the platform. Currently, the platform is in beta-testing (private mode here on GitHub)
 
 **URL**: https://lovable.dev/projects/53ed9925-31a9-430c-957e-1f4ec4c1ee56
 
